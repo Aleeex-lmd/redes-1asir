@@ -1,0 +1,7 @@
+Basándose en los pasos indicados en “KVM a pelo” realiza el siguiente escenario en tu máquina:
+1. Crea un bridge br0 en la máquina anfitrión y proporciona acceso a la red general a través de la interfaz de red Ethernet (eth0).
+2. Configura dos MVs Debian (debian1, debian2), con conectividad hacia la red principal a través del bridge creado. Comprueba que ambas MVs se comunican entre sí y hacia el exterior.
+3. Crea un bridge adicional br1 en la máquina anfitrión, sin conectividad con el exterior.
+4. Añade una segunda interfaz de red a cada máquina y conecta  las máquinas al nuevo bridge.
+5. Crea otras dos máquinas virtuales, debian3 y debian4 con una interfaz de red.
+6.Empleando VLANs en el bridge br1, conecta debian1 con debian3 y debian2 con debian4. Asigna de forma estática direcciones IP  y comprueba la conectividad en cada VLAN. Realiza este apartado realizando la configuración de VLANs en cada máquina, en primer lugar,  y directamente en el bridge, en segundo lugar.

@@ -1,0 +1,9 @@
+Realiza en tu máquina la instalación de las siguientes herramientas:
+
+Wireshark
+GNS3, incluyendo GNS3 VM
+Describe la instalación tanto en Windows como en Debian, explicando en este último caso para que sirve cada paquete instalado y demuestra el correcto funcionamiento de ambas herramientas, realizando un pequeño caso práctico de uso de las mismas:
+
+1. En Wireshark realiza la captura del proceso de asignación dinámica de IP que se produce al ejecutar una petición DHCP o el proceso de resolución de una petición DNS que se lleva a cabo al navegar por una página web.
+
+2. En GNS3 realiza la configuración de un pequeño escenario con dos máquinas VPCS conectadas a un mismo switch y haciendo ping entre ellas. Este ejemplo y la instalación completa de GNS3 están perfectamente documentados en la propia página de GNS3.

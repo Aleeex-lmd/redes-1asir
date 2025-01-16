@@ -1,0 +1,16 @@
+Problema 1.
+
+Tenemos que transmitir a un colega el contenido de un Pendrive de 32GB por una conexión Bluetooth 3.0 ¿Cuánto tardará suponiendo que la Vtx es de un 90% del ancho de banda teórico?
+Como alternativa tenemos la posibilidad de llevarlo en el bolsillo a casa del colega, que está a unos quince minutos andando. ¿Cual es la Vtx en este caso?
+¿Cual es la latencia en cada uno de los casos?
+
+Ancho de banda del Bluetooth 3.0? Buscar
+
+Problema 2.
+
+Si un fichero de 400GB se ha transmitido en 1 minuto y medio, ¿qué medio de transmisión crees que habremos utilizado?
+
+Problema 3.
+
+Una red local tiene una latencia de 500ms y un ancho de banda de 100 Mbps. Teniendo en cuenta que la velocidad de transmisión real es de un 80% del ancho de banda, ¿cuánto tardará en transmitirse un fichero de 4 KB?
+

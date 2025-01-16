@@ -1,0 +1,4 @@
+Ejercicio
+Configura linux bridge en tu equipo de manera que la interfaz de red externa (normalmente eth0) se pueda utilizar posteriormente por máquinas virtuales.
+Tras configurarlo el direccionamiento debe estar definido en el dispositivo br0 y eth0 debe ser un puerto del mismo
+Realiza pruebas con diferentes utilidades de red, capturando tráfico en los distintos interfaces, etc.

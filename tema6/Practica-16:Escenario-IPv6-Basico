@@ -1,0 +1,10 @@
+Realiza las siguientes tareas utilizando GNS3 o máquinas virtuales:
+
+Conecta dos máquinas Linux al mismo switch y comprueba que tienen conectividad con IPv6 usando la dirección de enlace local.
+Añade a la misma red una tercera máquina Linux y configúrala como router de forma que dé direcciones IPv6 globales a las otras dos usando SLAAC. No olvides instalar RADVD. Comprueba que tienen conectividad.
+Cambia la configuración para que utilice DHCPv6 en vez de SLAAC enviando también los servidores DNS. Comprueba que las máquinas tienen conectividad.
+Realiza una captura de tráfico en el que se muestre el proceso de autoconfiguración de direcciones por SLAAC y explica el proceso que ves.
+Realiza una captura de tráfico en el que se muestre el proceso de autoconfiguración de direcciones por DHCPv6 y explica el proceso que ves.
+Haz que una de las dos máquinas iniciales tenga montado un servidor Apache y configúralo para que dicho servicio funcione con IPv6. Accede a él desde la otra máquina de esa red.
+Monta una máquina al otro lado del router que use también IPv6. Demuestra que se puede acceder al servidor web desde esta última máquina sin necesidad de hacer NAT.
+Repite los puntos del 2 al 5 empleando un router CISCO en lugar de una máquina Debian (en GNS3, claro)

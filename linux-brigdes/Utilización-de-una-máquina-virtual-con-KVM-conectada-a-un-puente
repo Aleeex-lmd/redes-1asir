@@ -1,0 +1,45 @@
+En esta sección vamos a explicar los pasos para poder utilizar de forma rápida una máquina virtual conectada a un "bridge-linux", suponiendo que ya existe un bridge br0 que tiene acceso al exterior:
+
+root@maquina:~# brctl show
+bridge name	bridge id		STP enabled	interfaces
+br0		8000.902b34bfb129	no		eth0
+Con privilegios de root creamos una interfaz tap perteneciente al usuario "usuario":
+
+root@maquina:~# ip tuntap add mode tap user usuario
+Este comando nos creará una interfaz tap, para ver el nombre del dispositivo hacemos un listado de las interfaces tuntap disponibles:
+
+root@maquina:~# ip tuntap list
+tap0: tap UNKNOWN_FLAGS:800 user 1002
+"Pinchamos" esta interfaz en el bridge y la levantamos:
+
+root@maquina:~# brctl addif br0 tap0
+root@maquina:~# ip l set dev tap0 up
+Ya como usuario normal, generamos una dirección MAC aleatoria:
+
+usuario@maquina:~$ MAC0=$(echo "02:"`openssl rand -hex 5 | sed 's/..
+/\1:/g; s/.$//'`)
+Descargamos la imagen "jessie.qcow2" disponible en el nas y la arrancamos con la siguiente instrucción:
+
+usuario@maquina:~$ kvm -m 512 -hda jessie.qcow2 \
+-device virtio-net,netdev=n0,mac=$MAC0 \
+-netdev tap,id=n0,ifname=tap0,script=no,downscript=no
+Dos interfaces conectadas al mismo bridge
+El procedimiento sería muy similar, además de los pasos previos anteriores (salvo el de kvm), deberíamos crear una nueva interfaz tap y asociarla a br0:
+
+root@maquina:~# ip tuntap add mode tap user usuario
+root@maquina:~# ip tuntap list
+tap1: tap UNKNOWN_FLAGS:800 user 1002
+tap0: tap UNKNOWN_FLAGS:800 user 1002
+root@maquina:~# brctl addif br0 tap
+root@maquina:~# ip l set dev tap1 up
+Generamos una nueva dirección MAC:
+
+usuario@maquina:~$ MAC1=$(echo "02:"`openssl rand -hex 5 | sed 's/..
+/\1:/g; s/.$//'`)
+Y lo utilizaríamos todo con:
+
+usuario@maquina:~$ kvm -m 512 -hda jessie.qcow2 \
+-device virtio-net,netdev=n0,mac=$MAC0 \
+-netdev tap,id=n0,ifname=tap0,script=no,downscript=no \
+-device virtio-net,netdev=n1,mac=$MAC1 \
+-netdev tap,id=n1,ifname=tap1,script=no,downscript=no

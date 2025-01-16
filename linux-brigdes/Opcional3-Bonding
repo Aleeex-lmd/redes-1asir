@@ -1,0 +1,5 @@
+
+Basándose en la práctica anterior con MVs:
+1. Añade una interfaz de red adicional a una de las MVs. Conéctala al primer brige (br0)
+2. Configura agregación de enlaces entre las dos interfaces de red conectadas al mismo bridge, de forma que tenga redundancia ante fallos de un enlace y mejore el ancho de banda disponible
+3. Realiza una prueba de conectividad hacia el exterior. Comprueba que se mantiene la conectividad si uno de los enlaces se desconecta.

@@ -1,0 +1,15 @@
+Crear Bonding:
+
+Ir a cada interfaz del bonding y hacer channel-group n mode on
+
+Para comprobar bonding:
+
+sh int po1 (para comprobar el portchannel)
+
+sh et br (show etherchannel brief)
+
+sh et de (show etherchannel detail)
+
+sh et lo (show etherchannel load-balance): Para comprobar el reparto de tráfico
+
+Para saber más: https://www.9tut.com/etherchannel-tutorial/2

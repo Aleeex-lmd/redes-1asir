@@ -1,0 +1,31 @@
+Vais a tomar cada pareja dos ordenadores y dos switches.
+
+1. Individualmente, comprobad que podéis acceder a la web de configuración de uno de los switches.
+
+2. Por parejas, conectad dos ordenadores al mismo switch y comprobar que se comunican.
+
+3. Por parejas, cread dos VLAN en el mismo switch con las bocas que queráis. Conectad los PCs a la misma VLAN y comprobar la conectividad. Conectadlos a distintas VLAN y comprobar que no hay conectividad.
+
+4. Repetir la operación en el otro switch.
+
+5. Por parejas, comprobad que si conecto un PC a cada switch en la misma VLAN se comunican
+
+6. Por parejas, comprobad que si conecto un PC a cada switch en distinta VLAN no se comunican.
+
+7. Configurad ahora un Port Bonding de dos puertos para conectar los dos switches y vuelve a comprobar el funcionamiento, usando iperf o una herramienta similar para verificar el aumento de ancho de banda.
+
+8. Poned un PC más conectado al switch y, usando Port Mirroring, haz una captura con Wireshark de la comunicación entre ellos.
+
+9. Conectad uno de los switches a la roseta y consigue que los dos PCs salgan a Internet.
+
+Debéis subir un documento respondiendo a estas preguntas:
+
+1. ¿Que es la VLAN por defecto y para qué es necesaria?
+
+2. Justifica cuando un puerto de una VLAN debe estar etiquetado y cuando no.
+
+3. Diferencia entre 802.1Q y Port-Based VLANs.
+
+4. ¿Qué condiciones respecto a la infraestructura del centro deben darse para que funcione el punto 9?
+
+Los puntos del 1 al 9 se corregirán in situ por el profesor

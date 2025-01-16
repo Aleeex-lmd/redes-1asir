@@ -1,0 +1,196 @@
+﻿heat_template_version: newton
+
+description: 5 redes, 3 routers y 3 pcs
+
+parameters:
+  flavor:
+    type: string
+    default: "m1.micro"
+  image:
+    type: string
+    default: "017ae8f0-114e-4770-9df9-7e8b8f24199d"
+
+resources:
+
+  red1:
+    type: OS::Neutron::Net
+    properties:
+      name: "Red 1"
+  red2:
+    type: OS::Neutron::Net
+    properties:
+      name: "Red 2"
+  red3:
+    type: OS::Neutron::Net
+    properties:
+      name: "Red 3"
+  red4:
+    type: OS::Neutron::Net
+    properties:
+      name: "Red 4"
+  red5:
+    type: OS::Neutron::Net
+    properties:
+      name: "Red 5"
+
+  subnet1:
+    type: OS::Neutron::Subnet
+    properties:
+      network: { get_resource: red1 }
+      cidr: 172.23.0.0/16
+  subnet2:
+    type: OS::Neutron::Subnet
+    properties:
+      network: { get_resource: red2 }
+      cidr: 172.24.0.0/16
+  subnet3:
+    type: OS::Neutron::Subnet
+    properties:
+      network: { get_resource: red3 }
+      cidr: 172.25.0.0/16
+  subnet4:
+    type: OS::Neutron::Subnet
+    properties:
+      network: { get_resource: red4 }
+      cidr: 172.26.0.0/16
+  subnet5:
+    type: OS::Neutron::Subnet
+    properties:
+      network: { get_resource: red5 }
+      cidr: 172.27.0.0/16
+
+  pc1_red1:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red1 }
+  r1_red1:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red1 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  r1_red2:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red2 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  r2_red2:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red2 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  r2_red3:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red3 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  r2_red4:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red4 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  r3_red4:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red4 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  r3_red5:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red5 }
+      allowed_address_pairs:
+        - ip_address: 0.0.0.0/0
+  pc2_red3:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red3 }
+  pc3_red5:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_resource: red5 }
+
+  pc1:
+    type: OS::Nova::Server
+    properties:
+      name: "PC 1"
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      networks:
+        - { port: { get_resource: pc1_red1 } }
+        
+  r1:
+    type: OS::Nova::Server
+    properties:
+      name: "Router 1"
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      networks:
+        - { port: { get_resource: r1_red1 } }
+        - { port: { get_resource: r1_red2 } }
+
+  r2:
+    type: OS::Nova::Server
+    properties:
+      name: "Router 2"
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      networks:
+        - { port: { get_resource: r2_red2 } }
+        - { port: { get_resource: r2_red3 } }
+        - { port: { get_resource: r2_red4 } }
+
+  r3:
+    type: OS::Nova::Server
+    properties:
+      name: "Router 3"
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      networks:
+        - { port: { get_resource: r3_red4 } }
+        - { port: { get_resource: r3_red5 } }
+
+  pc2:
+    type: OS::Nova::Server
+    properties:
+      name: "PC 2"
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      networks:
+        - { port: { get_resource: pc2_red3 } }
+
+  pc3:
+    type: OS::Nova::Server
+    properties:
+      name: "PC 3"
+      flavor: { get_param: flavor }
+      image: { get_param: image }
+      networks:
+        - { port: { get_resource: pc3_red5 } }
+
+outputs:
+  mac_r1_red1:
+    description: "Router 1 - Red 1"
+    value: { get_attr: [r1_red1, mac_address] } 
+  mac_r1_red2:
+    description: "Router 1 - Red 2"
+    value: { get_attr: [r1_red2, mac_address] } 
+  mac_r2_red2:
+    description: "Router 2 - Red 2"
+    value: { get_attr: [r2_red2, mac_address] } 
+  mac_r2_red3:
+    description: "Router 2 - Red 3"
+    value: { get_attr: [r2_red3, mac_address] } 
+  mac_r2_red4:
+    description: "Router 2 - Red 4"
+    value: { get_attr: [r2_red4, mac_address] } 
+  mac_r3_red4:
+    description: "Router 3 - Red 4"
+    value: { get_attr: [r3_red4, mac_address] } 
+  mac_r3_red5:
+    description: "Router 3 - Red 5"
+    value: { get_attr: [r3_red5, mac_address] } 

@@ -1,0 +1,3 @@
+1. A partir de la dirección 172.23.0.0 / 16 queremos obtener nueve subredes diferentes. La mayor de ellas debe tener unos 1000 ordenadores. ¿Sería posible? Indica cuales serían las Dred de cada una de las subredes.
+
+2. Tenemos la dirección 192.168.1.0/24 y queremos dividirla para las cinco aulas de los ciclos. Cada aula puede tener hasta 31 máquinas. ¿Es posible? Indica la dirección de cada red.

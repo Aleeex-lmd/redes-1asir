@@ -1,0 +1,35 @@
+Vamos a simular con GNS3 el siguiente escenario usando tanto routers CISCO en una primera fase como routers Linux posteriormente:
+
+1) PC1 y PC2 son dos ordenadores que tenemos en casa y que toman su dirección ip por DHCP del router "Casa".
+
+2) El router "Casa" está conectado al Router "Internet1" de nuestro proveedor de internet que es el que se comunica con otro router de Internet "Internet2" al que se conectan a su vez los routers de dos empresas.
+
+3) Cada empresa tiene dos servidores: 
+
+En la empresa1 el servidor1 es un servidor web y el servidor2 es un Servidor Postgres.
+
+En la empresa2 el servidor3 es un servidor SSH y el servidor4 es un Servidor MariaDB.
+
+4) Queremos que desde PC1 o PC2 se pueda acceder a cualquiera de los servidores de ambas empresas.
+
+Tienes que tener en cuenta:
+
+1) Que todos los PCs deberán ser máquinas Debian.
+
+2) Debes instalar los correspondientes servicios en los servidores correspondientes y también los clientes que te permitan probar las bases de datos. Deberás también configurar los servidores de bases de datos para que permitan el acceso remoto.
+
+2) Tienes que configurar el router Casa como servidor DHCP para PC1 y PC2.
+
+3) Debes configurar el direccionamiento de las interfaces de todos los routers y de todas las máquinas, teniendo en cuenta que debes usar direcciones IP públicas para la parte correspondiente a Internet y direcciones IP privadas para las redes locales.
+
+4) Debes configurar SNAT en router casa.
+
+5) Debes configurar DNAT en los routers de las empresas (también SNAT, claro).
+
+6) Debes configurar el enrutamiento en los routers necesarios.
+
+Debes documentar el proceso realizado y demostrar el correcto funcionamiento.
+
+
+
+Bonus Track: Se puede montar el escenario en Openstack, creando las redes y montando clientes y servidores en Linux y utilizando routers Cisco o Mikrotik y conseguir hasta tres puntos más.

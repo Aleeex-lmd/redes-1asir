@@ -1,0 +1,19 @@
+Tengo en mi empresa 3 departamentos con 64, 90 y 76 ordenadores respectivamente. También tengo un router que conecta mi red a Internet a una velocidad de 900Mbps y un punto de acceso 802.11 ac en cada departamento al que se conectan un máximo de 10 portátiles. También tenemos un servidor de aplicaciones al que queremos que accedan todas las máquinas de todos los departamentos con un ancho de banda garantizado de 40Mbps.
+
+Queremos que  las máquinas de cada departamento no sean accesibles desde los otros departamentos y que todas salgan a Internet.
+
+a) Busca precios de:
+
+1. Switches gestionables de 48 bocas.
+
+2. Switches 48+4 bocas de 10Gb
+
+3. Switches apilables a 40Gb como mínimo
+
+4. Blade Switches con capacidad para 180 máquinas.
+
+b) ¿Cómo realizarías las conexiones si tuvieras 5 switches de 48 puertos totalmente gestionables? ¿Y si tuvieras 6? Detalla qué bocas tendría cada VLAN si es que vas a usarlas.
+
+c) ¿Con qué velocidad navegarian los PCs en el peor de los casos con cada una de las posibilidades?
+
+d) ¿Con qué velocidad navegarían los portátiles de cada departamento en el mejor de los casos con cada una de las posibilidades?

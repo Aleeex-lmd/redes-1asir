@@ -1,0 +1,21 @@
+Escenario a montar en Openstack:
+
+Vamos a tener cinco redes unidas por tres routers. En tres de ellas habrá también un PC.
+
+Redes:
+    - 172.23.0.0/16 -> PC1 y R1
+    - 172.24.0.0/16 -> R1 y R2
+    - 172.25.0.0/16 -> PC2 y R2
+    - 172.26.0.0/16 -> R2 y R3
+    - 172.27.0.0/16 -> PC3 y R3
+Tarea:
+Consigue levantar el stack definido en el fichero yaml adjuntado y realiza las modificaciones necesarias para poder acceder por consola con contraseña a las instancias creadas.
+Configura los hosts y los routers de forma que todos sean alcanzables desde cualquier otra máquina.
+Entrega:
+Esquema gráfico de la configuración
+Comandos de configuración de cada nodo.
+Verificación de conectividad (ping) entre nodos
+Captura de tráfico en el router r2 o r3 mostrando tráfico entre h1 y h3.
+
+escenario.yaml
+

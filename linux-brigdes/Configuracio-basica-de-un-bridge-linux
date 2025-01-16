@@ -1,0 +1,10 @@
+Introducción
+Un puente o bridge es un dispositivo de nivel de enlace (L2) genérico y pueden ser dispositivos físicos o software instalado en un equipo. El uso clásico de un bridge hardware es como dispositivo de nivel 2 que interconecta redes físicas diferentes (por ejemplo una red de fibra óptica con una red de cobre), eso mismo puede implementarse con un bridge por software donde un equipo con dos interfaces de red interconecta dos redes a nivel L2 y por tanto permite que todas las tramas pasen por él (de ahí el nombre de puente) sin modificar la MAC.
+
+Un switch es realmente un bridge, con la diferencia que se llama switch cuando tiene múltiples puertos y permite modificar la topología de la red a una topología física de estrella (o árbol).
+
+Es difícil utilizar un equipo convencional como switch físico a través de la configuración de un bridge software, porque es complicado que un equipo tenga el mismo número de interfaces de red que un switch, de ahí que no sea el uso más habitual. Sin embargo, con la generalización del uso de las redes virtuales, el uso de bridges software se disparó porque este software permite configurar las máquinas virtuales y la máquina física como si estuvieran conectadas a la misma red externa, lo cual es muy interesante en numerosas ocasiones.
+
+Linux bridge
+Los sistemas GNU/Linux incluyen diferentes aplicaciones que permiten configurar puentes por software, siendo el más conocido el denominado "linux bridge" que proporciona la aplicación "bridge-utils".
+
