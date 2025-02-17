@@ -4,7 +4,7 @@
 
 ## Escenario con ruter cisco
 
-- Primero montaremos la infraestructura en GNS3 como se pide, quedara de la siguiente forma
+-  Primero montaremos la infraestructura en GNS3 como se pide, quedara de la siguiente forma
 
 
 ###
